@@ -1,0 +1,21 @@
+name: python-dns
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  install:
+    name: CI
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Build Project
+      run: |
+        pip -i boto3
+
+    
+
+    
