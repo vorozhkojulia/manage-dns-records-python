@@ -14,7 +14,7 @@ jobs:
 
     - name: Build Project
       run: |
-        pip -i boto3
+        pip install boto3
 
     
 
