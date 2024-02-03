@@ -30,6 +30,7 @@ jobs:
         pip install boto3
   plan:
     name: plan
+    needs: install
     runs-on: ubuntu-latest
 
     steps:
@@ -49,6 +50,7 @@ jobs:
 
   apply:
     name: apply
+    needs: plan
     runs-on: ubuntu-latest
     
 
