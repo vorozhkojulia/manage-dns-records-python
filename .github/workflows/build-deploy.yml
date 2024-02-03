@@ -12,11 +12,7 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v3
 
-    - name: Build Project
-      run: |
-        python3 -mvenv myenv
-        source ./myenv/bin/activate
-        pip install boto3
+    
         
     - name: Cache Myenv
       uses: actions/cache@v3
@@ -27,7 +23,11 @@ jobs:
         restore-keys: |
           python-pip
 
-    
+    - name: Build Project
+      run: |
+        python3 -mvenv myenv
+        source ./myenv/bin/activate
+        pip install boto3
 
     
 
