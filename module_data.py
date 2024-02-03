@@ -6,5 +6,6 @@ record_data = [
     ('gitlab.julia.vorozhko.net', 'wordpress-alb-1198508628.us-east-1.elb.amazonaws.com')
 ]
 
+
 if __name__ == "__main__":
   print(record_data)
