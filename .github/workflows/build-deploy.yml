@@ -5,7 +5,7 @@ on:
 
 jobs:
   install:
-    name: CIl
+    name: build
     runs-on: ubuntu-latest
 
     steps:
@@ -28,6 +28,46 @@ jobs:
         python3 -mvenv myenv
         source ./myenv/bin/activate
         pip install boto3
+  plan:
+    name: plan
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Cache Myenv
+      uses: actions/cache@v3
+      with:
+        path: |
+          ./myenv
+        key: python-pip
+        restore-keys: |
+          python-pip
+
+    - name: Plan
+      run: |
+        source ./myenv/bin/activate
+        python3 ./module_data.py
+
+  apply:
+    name: apply
+    runs-on: ubuntu-latest
+    
+
+    steps:
+    - name: Cache Myenv
+      uses: actions/cache@v3
+      with:
+        path: |
+          ./myenv
+        key: python-pip
+        restore-keys: |
+          python-pip
+
+    - name: Plan
+      run: |
+        source ./myenv/bin/activate
+        python3 ./dns-records.py
+
+    
 
     
 
