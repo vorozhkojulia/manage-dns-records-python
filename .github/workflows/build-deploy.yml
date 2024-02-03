@@ -70,7 +70,7 @@ jobs:
         restore-keys: |
           python-pip
 
-    - name: Plan
+    - name: Apply
       run: |
         source ./myenv/bin/activate
         python3 ./dns-records.py
